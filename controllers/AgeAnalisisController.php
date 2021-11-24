@@ -71,7 +71,7 @@ class AgeAnalisisController extends Controller
     }
 
     public function actionViewn($id,$nuevo)
-    {
+    {   // PRIMER
         return $this->render('view', [
             'model' => $this->findModel($id),
             'nuevo' => $nuevo,
