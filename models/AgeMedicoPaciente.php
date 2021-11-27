@@ -56,6 +56,7 @@ class AgeMedicoPaciente extends \yii\db\ActiveRecord
             'nombrem'           => 'Medico',
             'apellidop'        => 'Apellido Paterno',
             'apellidomp'        => 'Apellido Paterno',
+            'apellidomm'        => 'Apellido Materno',
             'apellidom'        => 'Apellido Materno',
             'generob'           => 'Genero',
             'fecha'            => 'Fecha de Nacimiento',
@@ -90,6 +91,10 @@ class AgeMedicoPaciente extends \yii\db\ActiveRecord
     public function getApellidomp()
     {
         return $this->relFkMed->med_apellido_paterno;
+    }
+    public function getApellidomm()
+    {
+        return $this->relFkMed->med_apellido_materno;
     }
     /**
      * Gets query for [[RelFkPac]].

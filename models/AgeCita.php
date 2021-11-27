@@ -56,7 +56,10 @@ class AgeCita extends \yii\db\ActiveRecord
             'cit_estatus'            => 'Estatus',
             'cit_fk_medico_paciente' => 'Medico',
             'relacion'               => 'Relacion',
-            'estatus'                => 'Estatus'
+            'estatus'                => 'Estatus',
+            'nombremedico'           => 'Medico',
+            'apellidopmedico'        => 'Apellido Paterno',
+            'apellidommedico'        => 'Apellido Materno',
         ];
     }
 
@@ -72,6 +75,17 @@ class AgeCita extends \yii\db\ActiveRecord
     public function getRelacion()
     {
         return $this->citFkMedicoPaciente->rel_fk_med_id;
+    }
+    public function getNombremedico()
+    {
+        return $this->citFkMedicoPaciente->nombrem;
+    }
+    public function getApellidopmedico()
+    {
+        return $this->citFkMedicoPaciente->apellidomp;
+    } public function getApellidommedico()
+    {
+        return $this->citFkMedicoPaciente->apellidomm;
     }
     public function getCitEstatus()
     {

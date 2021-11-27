@@ -14,6 +14,8 @@ use app\models\AgeMedico;
 use app\models\AgePaciente;
 use app\models\AgeEstatus;
 use webvimark\modules\UserManagement\models\User;
+use yii\data\Pagination;
+
 /**
  * AgeCitaController implements the CRUD actions for AgeCita model.
  */
@@ -103,13 +105,13 @@ class AgeCitaController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $paciente = AgeMedicoPaciente::findOne($model->cit_fk_medico_paciente);
-            $correos = $paciente->email;
-            Yii::$app->mailer->compose('layouts/html')
-            ->setFrom('consultoriomedico@agendaelectronica.tk')
-            ->setTo($correos)
-            ->setSubject('Cita')
-            ->send(); 
-            return $this->redirect(['view', 'id' => $model->cit_id]);
+         //   $correos = $paciente->email;
+        //    Yii::$app->mailer->compose('layouts/html')
+        //    ->setFrom('consultoriomedico@agendaelectronica.tk')
+          //  ->setTo($correos)
+         //   ->setSubject('Cita')
+         //   ->send(); 
+          return $this->redirect(['view', 'id' => $model->cit_id]);
         }
 
         return $this->render('update', [
@@ -225,21 +227,33 @@ class AgeCitaController extends Controller
     {   $model = AgeCita::find()->all();
         $searchModel1 = new AgeCitaSearch();
         $dataProvider1 = $searchModel1->buscar2(Yii::$app->request->queryParams,$id,"1");
-
-        $searchModel2 = new AgeCitaSearch();
-        $dataProvider2 = $searchModel2->buscar2(Yii::$app->request->queryParams,$id,"2");
-
-        $searchModel3 = new AgeCitaSearch();
-        $dataProvider3 = $searchModel3->buscar2(Yii::$app->request->queryParams,$id,"3");
-
+        
         return $this->render('miscitas', [
             'searchModel1' => $searchModel1,
             'dataProvider1' => $dataProvider1,
             'model'        => $model,
-            'searchModel2' => $searchModel2,
+        ]);
+    }
+    public function actionMiscitasc($id)
+    {   $model = AgeCita::find()->all();
+        $searchModel1 = new AgeCitaSearch();
+        $dataProvider2 = $searchModel1->buscar2(Yii::$app->request->queryParams,$id,"2");
+        
+        return $this->render('miscitasc', [
+            'searchModel1' => $searchModel1,
             'dataProvider2' => $dataProvider2,
-            'searchModel3' => $searchModel3,
+            'model'        => $model,
+        ]);
+    }
+    public function actionMiscitasf($id)
+    {   $model = AgeCita::find()->all();
+        $searchModel1 = new AgeCitaSearch();
+        $dataProvider3 = $searchModel1->buscar2(Yii::$app->request->queryParams,$id,"3");
+        
+        return $this->render('miscitasf', [
+            'searchModel1' => $searchModel1,
             'dataProvider3' => $dataProvider3,
+            'model'        => $model,
         ]);
     }
 }

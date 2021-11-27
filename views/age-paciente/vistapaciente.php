@@ -49,7 +49,9 @@ use kartik\bs4dropdown\ButtonDropdown;
     'dropdown' => [
         'items' => [
             ['label' => 'Nueva cita', 'url' => '/age-cita/solicitar'],
-            ['label' => 'Mis Citas', 'url' => '/age-cita/miscitas?id='.$model->pac_id],
+            ['label' => 'Mis Citas Pendientes ', 'url' => '/age-cita/miscitas?id='.$model->pac_id],
+            ['label' => 'Mis Citas Confirmadas', 'url' => '/age-cita/miscitasc?id='.$model->pac_id],
+            ['label' => 'Mis Citas Finalizadas', 'url' => '/age-cita/miscitasf?id='.$model->pac_id],
             '<div class="dropdown-divider"></div>',
         ],
     ],

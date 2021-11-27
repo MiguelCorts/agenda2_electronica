@@ -7,14 +7,7 @@ use yii\widgets\DetailView;
 use kartik\widgets\Growl;
  ?>
 
-<?php echo Growl::widget([
-    'type' => Growl::TYPE_SUCCESS,
-    'icon' => 'glyphicon glyphicon-ok-sign',
-    'title' => 'Note',
-    'showSeparator' => true,
-    'body' => 'This is a successful growling alert.'
-]);?>
-<div class="row">
+                             <div class="row">
 								<div class="col-md-12">
 									<div class="mu-team-content">
 										<div class="row">
@@ -36,7 +29,7 @@ use kartik\widgets\Growl;
                               <?php
                               PopoverX::begin([
                                'placement' => PopoverX::ALIGN_RIGHT,
-                               'toggleButton' => ['label'=>'Login', 'class'=>'btn btn-default'],
+                               'toggleButton' => ['label'=>'Horario', 'class'=>'btn btn-default'],
                               'header' => '<h5>Horario</h5>',
                                    ]);
 // form with an id used for action buttons in footer
