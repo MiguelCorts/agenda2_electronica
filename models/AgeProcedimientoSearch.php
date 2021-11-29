@@ -82,6 +82,9 @@ class AgeProcedimientoSearch extends AgeProcedimiento
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pageSize' => 4,
+                ],
         ]);
 
         $this->load($params);

@@ -79,6 +79,9 @@ class AgeMedicoPacienteSearch extends AgeMedicoPaciente
         $query = $query->joinwith('relFkPac');
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pageSize' => 3,
+                ],
         ]);
 
         $this->load($params);

@@ -63,6 +63,11 @@ class AgeMedicoPaciente extends \yii\db\ActiveRecord
             'foto'             => 'Foto de perfil',
             'email'            => 'Correo',
             'especialidad'     => 'Especilidad',
+            'peso'          => 'peso',
+            'estatura'      => 'Estatura',
+            'tipo'          => 'Tipo de Sangre',
+            'alergico'      => 'Farmaco Alergico',
+            'antecedentes'  => 'Antecedentes'
         ];
     }
 
@@ -137,6 +142,26 @@ class AgeMedicoPaciente extends \yii\db\ActiveRecord
     public function getEmail()
     {
         return $this->relFkPac->correo;
+    }
+    public function getPeso()
+    {
+        return $this->relFkPac->pac_peso;
+    }
+    public function getEstatura()
+    {
+        return $this->relFkPac->pac_estatura;
+    }
+    public function getTipo()
+    {
+        return $this->relFkPac->pac_tipo_sangre;
+    }
+    public function getAlergico()
+    {
+        return $this->relFkPac->pac_farmaco_alergico;
+    }
+    public function getAntecedentes()
+    {
+        return $this->relFkPac->pac_antecedentes;
     }
 
 

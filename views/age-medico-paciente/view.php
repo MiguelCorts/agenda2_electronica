@@ -62,6 +62,11 @@ $this->params['breadcrumbs'][] = $this->title;
           'apellidom',
           'generob',
           'fecha',
+          'peso',
+          'estatura',
+          'tipo',
+          'alergico',
+          'antecedentes'
         ],
     ]) ?>
 

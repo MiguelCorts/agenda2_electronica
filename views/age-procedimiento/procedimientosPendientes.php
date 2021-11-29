@@ -2,28 +2,58 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-
+use yii\widgets\LinkPager;
 ?>
-<h1>Procedimientos Pendientes </h1>
 <br>
-<?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+                        <br>
+                        <br>
+							<!-- Title -->
+							<div class="row">
+								<div class="col-md-12">
+									<div class="mu-title">
+										<h2>Procedimientos Pendientes</h2>
+										<p>Estos Procedimientos estan pendientes de confirmar, favor de agregar el documento de consentimiento </p>
+									</div>
+								</div>
+							</div>
+							<!-- Start Team Content -->
+							<div class="row">
+								<div class="col-md-12">
+									<div class="mu-team-content">
+										<div class="row">
 
-            'pro_id',
-            'pro_tipo',
-            'pro_fecha',
-            'pro_hora',
-            'pro_hospital',
-            //'pro_sala',
-            //'pro_pg_disponible',
-            //'pro_descripcion:ntext',
-            //'pro_consentimiento_ruta',
-            'estatus',
-            //'pro_fk_medico_paciente',
+                                        <?php foreach ($dataProvider->getModels() as $mode => $mod){?>
+											<!-- start single item -->
+											<div class="col-md-6">
+												<div class="mu-single-team">
+													<div class="mu-single-team-img">
+														<img src="/plantilla2/images/calendarioAmarillo.png" alt="img">
+													</div>
+													<div class="mu-single-team-content">
+                                                        <h3>Pac. <?=$mod->nombrep?> <?=$mod->apellidopp?> <?=$mod->apellidopm?></h3>
+														<span><b>Genero: </b> <?= $mod->genero?></span>
+														<p><b>Tipo: </b> <?= $mod->pro_tipo?></p>
+                                                        <p><b>Hospital: </b> <?= $mod->pro_hospital?></p>
+                                                        <p><b>Fecha: </b><?=$mod->pro_fecha?> <b>Hora: </b> <?=$mod->pro_hora?></p>
+                                                        
+                                                        <p><?= Html::a('Ver', ['/age-procedimiento/view', 'id' => $mod->pro_id], ['class' => 'btn btn-success']) ?> 
+                                                        <?= Html::a('Editar', ['/age-procedimiento/update', 'id' => $mod->pro_id], ['class' => 'btn btn-primary']) ?>
+                                                        <?= Html::a('Eliminar', ['/age-procedimiento/delete', 'id' => $mod->pro_id], ['class' => 'btn btn-danger']) ?> </p>
+													</div>
+												</div>
+											</div>
+											<!-- End single item -->
+                                            
+                                            <?php }?>
 
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+										</div>
+									</div>
+								</div>
+								
+							</div>
+							<center>
+									<?= LinkPager::widget(['pagination' => $dataProvider->pagination,]);?>
+										
+							</center>
+							<!-- End Team Content -->
+					

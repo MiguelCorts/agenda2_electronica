@@ -67,6 +67,10 @@ class AgeProcedimiento extends \yii\db\ActiveRecord
             'pro_estatus'             => 'Estatus',
             'estatus'                 => 'Estatus',
             'pro_fk_medico_paciente'  => 'Pro Fk Medico Paciente',
+            'nombrep'           => 'Nombre',
+            'apellidopp'        => 'Apellido Paterno',
+            'apellidopm'        => 'Apellido Materno',
+            'genero'            => 'Genero',
         ];
     }
 
@@ -94,6 +98,22 @@ class AgeProcedimiento extends \yii\db\ActiveRecord
     public function getEspecialidad()
     {
         return $this->proFkMedicoPaciente->especialidad;
+    }
+    public function getNombrep()
+    {
+        return $this->proFkMedicoPaciente->nombre;
+    }
+    public function getApellidopp()
+    {
+        return $this->proFkMedicoPaciente->apellidop;
+    }
+    public function getApellidopm()
+    {
+        return $this->proFkMedicoPaciente->apellidom;
+    }
+    public function getGenero()
+    {
+        return $this->proFkMedicoPaciente->generob;
     }
     public function getProEstatus()
     {

@@ -139,7 +139,8 @@ return [
         //  $model = AgePaciente::find()->where(['pac_fk_user_id' => Yii::$app->user->identity->id])->one();
           $searchModel = new AgeMedicoPacienteSearch();
           $dataProvider = $searchModel->buscar(Yii::$app->request->queryParams,$id);
+          $dataProvider2 = $searchModel->buscar(Yii::$app->request->queryParams,500);
 
-        return $this->render('mispacientes',compact('searchModel','dataProvider'));
+        return $this->render('mispacientes',compact('searchModel','dataProvider','dataProvider2'));
     }
 }
