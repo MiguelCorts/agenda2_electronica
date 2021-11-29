@@ -2,90 +2,56 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-
+use yii\widgets\LinkPager;
 ?>
-<br>
-<center>
-<h1>Procedimientos Pendientes </h1>
-<center>
-<br>
-<?= GridView::widget([
-        'dataProvider' => $dataProvider1,
-        'filterModel' => $searchModel1,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+                        <br>
+                        <br>
+                        <br>
+							<!-- Title -->
+							<div class="row">
+								<div class="col-md-12">
+									<div class="mu-title">
+										<h2>Procedimientos Pendientes</h2>
+										<p>Estos Procedimientos estan pendientes de confirmar para mayor informacion consultar con su medico </p>
+									</div>
+								</div>
+							</div>
+							<!-- Start Team Content -->
+							<div class="row">
+								<div class="col-md-12">
+									<div class="mu-team-content">
+										<div class="row">
 
-           // 'pro_id',
-            'pro_tipo',
-            'pro_fecha',
-            'pro_hora',
-            'pro_hospital',
-            //'pro_sala',
-            //'pro_pg_disponible',
-            //'pro_descripcion:ntext',
-            //'pro_consentimiento_ruta',
-            'estatus',
-            //'pro_fk_medico_paciente',
+                                        <?php foreach ($dataProvider1->getModels() as $mode => $mod){?>
+											<!-- start single item -->
+											<div class="col-md-6">
+												<div class="mu-single-team">
+													<div class="mu-single-team-img">
+														<img src="/plantilla2/images/calendarioAmarillo.png" alt="img">
+													</div>
+													<div class="mu-single-team-content">
+														<h3>Dr.<?=$mod->nombremedico?> <?=$mod->apellidopmedico?> <?=$mod->apellidommedico?></h3>
+														<span><b>Especialidad: </b> <?= $mod->especialidad?></span>
+														<p><b>Tipo: </b> <?= $mod->pro_tipo?></p>
+                                                        <p><b>Hospital: </b> <?= $mod->pro_hospital?></p>
+                                                        <p><b>Fecha: </b><?=$mod->pro_fecha?> <b>Hora: </b> <?=$mod->pro_hora?></p>
+                                                        
+                                                        <p><?= Html::a('Ver', ['/age-procedimiento/view', 'id' => $mod->pro_id], ['class' => 'btn btn-success']) ?></p>
+													</div>
+												</div>
+											</div>
+											<!-- End single item -->
+                                            
+                                            <?php }?>
 
-            [
-                'class' => 'yii\grid\ActionColumn',
-                'template' => '{view}',
-         ],
-        ],
-    ]); ?>
-<center>
-<h1>Procedimientos Confirmados</h1>
-</center>
-<br>
-<?= GridView::widget([
-        'dataProvider' => $dataProvider2,
-        'filterModel' => $searchModel2,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-           // 'pro_id',
-            'pro_tipo',
-            'pro_fecha',
-            'pro_hora',
-            'pro_hospital',
-            //'pro_sala',
-            //'pro_pg_disponible',
-            //'pro_descripcion:ntext',
-            //'pro_consentimiento_ruta',
-            'estatus',
-            //'pro_fk_medico_paciente',
-
-            [
-                'class' => 'yii\grid\ActionColumn',
-                'template' => '{view}',
-         ],
-        ],
-    ]); ?>
-<center>
-<h1>Procedimientos Finalizados</h1>
-</center>
-<br>
-<?= GridView::widget([
-        'dataProvider' => $dataProvider3,
-        'filterModel' => $searchModel3,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-          //  'pro_id',
-            'pro_tipo',
-            'pro_fecha',
-            'pro_hora',
-            'pro_hospital',
-            //'pro_sala',
-            //'pro_pg_disponible',
-            //'pro_descripcion:ntext',
-            //'pro_consentimiento_ruta',
-            'estatus',
-            //'pro_fk_medico_paciente',
-
-            [
-                'class' => 'yii\grid\ActionColumn',
-                'template' => '{view}',
-         ],
-        ],
-    ]); ?>
+										</div>
+									</div>
+								</div>
+								
+							</div>
+							<center>
+									<?= LinkPager::widget(['pagination' => $dataProvider1->pagination,]);?>
+										
+							</center>
+							<!-- End Team Content -->
+					

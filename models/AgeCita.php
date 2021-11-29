@@ -60,6 +60,7 @@ class AgeCita extends \yii\db\ActiveRecord
             'nombremedico'           => 'Medico',
             'apellidopmedico'        => 'Apellido Paterno',
             'apellidommedico'        => 'Apellido Materno',
+            'especialidad'           => 'Especialidad',
         ];
     }
 
@@ -83,9 +84,14 @@ class AgeCita extends \yii\db\ActiveRecord
     public function getApellidopmedico()
     {
         return $this->citFkMedicoPaciente->apellidomp;
-    } public function getApellidommedico()
+    } 
+    public function getApellidommedico()
     {
         return $this->citFkMedicoPaciente->apellidomm;
+    }
+    public function getEspecialidad()
+    {
+        return $this->citFkMedicoPaciente->especialidad;
     }
     public function getCitEstatus()
     {

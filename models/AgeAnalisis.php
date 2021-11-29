@@ -49,6 +49,13 @@ class AgeAnalisis extends \yii\db\ActiveRecord
             'ana_tipo' => 'Tipo',
             'ana_ruta' => 'Archivo',
             'ana_fk_pac_id' => 'Ana Fk Pac ID',
+            'nombre'        => 'Nombre',
+            'apellidop'     => 'Apellido Paterno',
+            'apellidom'     => 'Apellido Materno',
+            'peso'          => 'peso',
+            'estatura'      => 'Estatura',
+            'tipo'          => 'Tipo de Sangre',
+            'genero'        => 'Genero'
         ];
     }
 
@@ -61,4 +68,26 @@ class AgeAnalisis extends \yii\db\ActiveRecord
     {
         return $this->hasOne(AgePaciente::className(), ['pac_id' => 'ana_fk_pac_id']);
     }
+    public function getNombre(){
+        return $this->anaFkPac->pac_nombre;
+    }
+    public function getApellidop(){
+        return $this->anaFkPac->pac_apellido_paterno;
+    }
+    public function getApellidom(){
+        return $this->anaFkPac->pac_apellido_materno;
+    }
+    public function getPeso(){
+        return $this->anaFkPac->pac_peso;
+    }
+    public function getEstatura(){
+        return $this->anaFkPac->pac_estatura;
+    }
+    public function getTipo(){
+        return $this->anaFkPac->pac_tipo_sangre;
+    }
+    public function getGenero(){
+        return $this->anaFkPac->pac_genero_biologico;
+    }
+
 }

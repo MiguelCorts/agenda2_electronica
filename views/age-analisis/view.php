@@ -77,7 +77,6 @@ if($nuevo==1){
                      return '<span class="glyphicon glyphicon-folder-open"></span>';
                 },
               ],
-            'ana_fk_pac_id',
         ],
     ]) ?>
 

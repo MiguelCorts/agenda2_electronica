@@ -61,7 +61,8 @@ class AgeMedicoPaciente extends \yii\db\ActiveRecord
             'generob'           => 'Genero',
             'fecha'            => 'Fecha de Nacimiento',
             'foto'             => 'Foto de perfil',
-            'email'            => 'Correo'
+            'email'            => 'Correo',
+            'especialidad'     => 'Especilidad',
         ];
     }
 
@@ -95,6 +96,10 @@ class AgeMedicoPaciente extends \yii\db\ActiveRecord
     public function getApellidomm()
     {
         return $this->relFkMed->med_apellido_materno;
+    }
+    public function getEspecialidad()
+    {
+        return $this->relFkMed->med_especialidad;
     }
     /**
      * Gets query for [[RelFkPac]].

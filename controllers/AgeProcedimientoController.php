@@ -248,13 +248,29 @@ return [
     {  
         $searchModel = new AgeProcedimientoSearch();
         $dataProvider1 = $searchModel->buscar2(Yii::$app->request->queryParams,$id,1);
-        $dataProvider2 = $searchModel->buscar2(Yii::$app->request->queryParams,$id,2);
-        $dataProvider3 = $searchModel->buscar2(Yii::$app->request->queryParams,$id,3);
 
         return $this->render('misprocedimientos', [
             'searchModel'  => $searchModel,
             'dataProvider1' => $dataProvider1,
-            'dataProvider2' => $dataProvider2,
+        ]);
+    }
+    public function actionMisprocedimientosc($id)
+    {  
+        $searchModel = new AgeProcedimientoSearch();
+        $dataProvider2 = $searchModel->buscar2(Yii::$app->request->queryParams,$id,2);
+
+        return $this->render('misprocedimientosc', [
+            'searchModel'  => $searchModel,
+            'dataProvider2' => $dataProvider2,        
+        ]);
+    }
+    public function actionMisprocedimientosf($id)
+    {  
+        $searchModel = new AgeProcedimientoSearch();
+        $dataProvider3 = $searchModel->buscar2(Yii::$app->request->queryParams,$id,3);
+
+        return $this->render('misprocedimientosf', [
+            'searchModel'  => $searchModel,
             'dataProvider3' => $dataProvider3,
         
         ]);

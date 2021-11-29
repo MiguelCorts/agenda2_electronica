@@ -12,7 +12,7 @@ use yii\widgets\LinkPager;
 								<div class="col-md-12">
 									<div class="mu-title">
 										<h2>Citas Concluidas</h2>
-										<p>Estas citas estan en estatus concluido aqui se puede ver el diagnostico por escrito del medico</p>
+										<p>Estas citas estan en estatus concluido aqui se puede ver el diagnostico por escrito del medico </p>
 									</div>
 								</div>
 							</div>
@@ -31,7 +31,7 @@ use yii\widgets\LinkPager;
 													</div>
 													<div class="mu-single-team-content">
 														<h3>Dr.<?=$mod->nombremedico?> <?=$mod->apellidopmedico?> <?=$mod->apellidommedico?></h3>
-														<span><b>Especialidad:</b> Pediatra</span>
+														<span><b>Especialidad: </b> <?= $mod->especialidad?></span>
 														<p><b>Motivo: </b> <?= $mod->cit_motivo?></p>
                                                         <p><b>Fecha: </b><?=$mod->cit_fecha?> <b>Hora: </b> <?=$mod->cit_hora?></p>
                                                         

@@ -27,21 +27,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]);
-        echo Html::a('<i class="fa far fa-hand-point-up"></i> Generar pdf', ['/age-receta/privacy'], [
-            'class'=>'btn btn-danger',
-            'target'=>'_blank',
-            'data-toggle'=>'tooltip',
-            'title'=>'Will open the generated PDF file in a new window'
-        ]);
+        
         } else if (User::hasRole('Paciente', $superAdminAllowed = true)){
            $ruta = "/age-paciente/vistapaciente";
         echo    Html::a('Regresar', ['/age-paciente/vistapaciente'], ['class' => 'btn btn-success']);
-        echo Html::a('<i class="fa far fa-hand-point-up"></i> Generar pdf', ['/age-receta/privacy'], [
+      /*  echo Html::a('<i class="fa far fa-hand-point-up"></i> Generar pdf', ['/age-receta/privacy'], [
             'class'=>'btn btn-danger',
             'target'=>'_blank',
             'data-toggle'=>'tooltip',
             'title'=>'Will open the generated PDF file in a new window'
-        ]);
+        ]);*/
           }
 
           ?>
@@ -57,7 +52,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'rec_fecha',
             'rec_medicamentos:ntext',
             'rec_indicaciones:ntext',
-            'rec_fk_medico_paciente',
         ],
     ]) ?>
 

@@ -58,7 +58,19 @@ use kartik\bs4dropdown\ButtonDropdown;
     'buttonOptions' => ['class' => 'btn btn-warning']
     ]); 
   ?>
-  <?= Html::a('Mis Procedimientos', ['/age-procedimiento/misprocedimientos', 'id' => $model->pac_id], ['class' => 'btn btn-success']) ?>
+   <?=ButtonDropdown::widget([
+    'label' => 'Mis procedimientos', 
+    'dropdown' => [
+        'items' => [
+            ['label' => 'Mis Procedimientos Pendientes ', 'url' => '/age-procedimiento/misprocedimientos?id='.$model->pac_id],
+            ['label' => 'Mis Procedimientos Confirmadas', 'url' => '/age-procedimiento/misprocedimientosc?id='.$model->pac_id],
+            ['label' => 'Mis Procedimientos Finalizadas', 'url' => '/age-procedimiento/misprocedimientosf?id='.$model->pac_id],
+            '<div class="dropdown-divider"></div>',
+        ],
+    ],
+    'buttonOptions' => ['class' => 'btn btn-success']
+    ]); 
+  ?>
    <?= Html::a('Mis Recetas', ['/age-receta/misrecetas', 'id' => $model->pac_id], ['class' => 'btn btn-info']) ?>
    <?= Html::a($nombre, [$ruta], ['class' => 'btn btn-danger']) ?>
    <?php //Html::a('Modificar datos', [$model->isNewRecord ? 'create' : 'update?id='.$model->pac_id], ['class' => 'btn btn-success']); ?>

@@ -51,6 +51,10 @@ class AgeReceta extends \yii\db\ActiveRecord
             'rec_indicaciones' => 'Indicaciones',
             'rec_fk_medico_paciente' => 'Rec Fk Medico Paciente',
             'relacion'               => 'Relacion',
+            'nombremedico'           => 'Medico',
+            'apellidopmedico'        => 'Apellido Paterno',
+            'apellidommedico'        => 'Apellido Materno',
+            'especialidad'           => 'Especialidad',
         ];
     }
 
@@ -62,6 +66,22 @@ class AgeReceta extends \yii\db\ActiveRecord
     public function getRecFkMedicoPaciente()
     {
         return $this->hasOne(AgeMedicoPaciente::className(), ['rel_id' => 'rec_fk_medico_paciente']);
+    }
+    public function getNombremedico()
+    {
+        return $this->recFkMedicoPaciente->nombrem;
+    }
+    public function getApellidopmedico()
+    {
+        return $this->recFkMedicoPaciente->apellidomp;
+    } 
+    public function getApellidommedico()
+    {
+        return $this->recFkMedicoPaciente->apellidomm;
+    }
+    public function getEspecialidad()
+    {
+        return $this->recFkMedicoPaciente->especialidad;
     }
     public function getRelacion()
     {

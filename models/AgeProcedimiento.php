@@ -79,6 +79,22 @@ class AgeProcedimiento extends \yii\db\ActiveRecord
     {
         return $this->hasOne(AgeMedicoPaciente::className(), ['rel_id' => 'pro_fk_medico_paciente']);
     }
+    public function getNombremedico()
+    {
+        return $this->proFkMedicoPaciente->nombrem;
+    }
+    public function getApellidopmedico()
+    {
+        return $this->proFkMedicoPaciente->apellidomp;
+    } 
+    public function getApellidommedico()
+    {
+        return $this->proFkMedicoPaciente->apellidomm;
+    }
+    public function getEspecialidad()
+    {
+        return $this->proFkMedicoPaciente->especialidad;
+    }
     public function getProEstatus()
     {
         return $this->hasOne(AgeEstatus::className(), ['est_id' => 'pro_estatus']);
